@@ -5,8 +5,9 @@
   "description": "Web UI for the Rome App Distribution Portal. Handoff scaffold for visual design.",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:chain-config && next build",
+    "build": "npm run build:chain-config && npm run build:solana-programs && next build",
     "build:chain-config": "tsx scripts/build-chain-config.ts",
+    "build:solana-programs": "tsx scripts/build-solana-programs.ts",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

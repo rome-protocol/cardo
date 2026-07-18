@@ -1,11 +1,12 @@
 // Solana program ID accessor for Cardo.
 //
-// Single source of truth: the public `@rome-protocol/registry` package, read
-// via its API (`getPrograms(network)` / `getLstMints()`) — the canonical
-// program IDs for every Solana protocol Cardo touches. Resolved once at module
-// load, so values are effectively bundled — no runtime fetch, no hidden network
-// dependency in production. If a program ID changes (devnet redeploy etc.),
-// update the registry, bump the cardo dep, ship the bump.
+// Single source of truth: the public `@rome-protocol/registry` pin, projected at
+// BUILD time into the committed `solana-programs.generated.json` by
+// `scripts/build-solana-programs.ts` (the same pattern as chain-config). The
+// client imports that JSON, never the registry package — the package resolves
+// its data from disk (node:fs/node:url) and must not enter the browser bundle
+// (doing so breaks `next build` with an UnhandledSchemeError). If a program ID
+// changes (devnet redeploy etc.), update the registry, bump the cardo dep, regen.
 //
 // Usage:
 //
@@ -17,11 +18,11 @@
 // and to 'devnet' for the rest of cardo (which targets Rome / Solana
 // devnet via Rome's bridge). Per-call override is always available.
 
-import { getPrograms, getLstMints } from '@rome-protocol/registry';
+import generated from './solana-programs.generated.json';
 
-const mainnetPrograms = getPrograms('mainnet');
-const devnetPrograms = getPrograms('devnet');
-const lstMintsMainnet = getLstMints();
+const mainnetPrograms = generated.mainnet;
+const devnetPrograms = generated.devnet;
+const lstMintsMainnet = generated.lstMints;
 
 export type SolanaNetwork = 'mainnet' | 'devnet';
 
