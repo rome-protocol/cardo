@@ -1,0 +1,32 @@
+node_modules
+.next/
+out/
+# Playwright throwaway output (the SPECS are persistent; these are not)
+test-results/
+playwright-report/
+.playwright/
+.env
+.env.local
+.env*.local
+*.log
+.DS_Store
+coverage/
+.vscode/
+.idea/
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# Burner devnet keypairs used by the bootstrap scripts.
+# These are pre-funded and short-lived — never commit them.
+scripts/keys/*.priv*
+
+# Secret material — defense in depth. Treasury/relayer keys live OUTSIDE the
+# repo (<your-secrets-dir>/…); these patterns ensure key material never lands here
+# even by accident, and never trips GitHub secret scanning on push.
+*.key
+*.pem
+*.p12
+*.keypair
+*-keypair.json
+.secrets/
+secrets/

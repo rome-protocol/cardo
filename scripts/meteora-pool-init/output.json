@@ -1,0 +1,26 @@
+{
+  "rpc": "https://api.devnet.solana.com",
+  "pool": "YxX5pw3A5orw68fqJE7ZzqbKfdbm6WWcL5E57A4EEV2",
+  "tokenAMint": "So11111111111111111111111111111111111111112",
+  "tokenBMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+  "aVault": "FERjPVNEa7Udq8CEv68h6tPL46Tq7ieE49HrE2wea3XT",
+  "bVault": "9UKnJUJ5AiFdK7BPrjgvDwxAdoqGHBWL8h9jE3ReNSYy",
+  "aVaultLp": "BL1VSWEvdEopdGDnrTTnpSFrYty9GYHvXUC2rhkMVPs5",
+  "bVaultLp": "2Mbot3WfQSKapgwqGN98yWC6vYEtFY8TA7tD4EiDWohu",
+  "aVaultLpMint": "BvoAjwEDhpLzs3jtu4H72j96ShKT5rvZE9RP1vgpfSM",
+  "bVaultLpMint": "518HrCiyT4ezSpi3DgMutv3NbezvgBLp5gUJjQ1QVuMK",
+  "protocolTokenAFee": "2BxGFzsGfbAX1F7zAvzf1Rp1b3n6vKURGJQ6SuJWE9ST",
+  "protocolTokenBFee": "Cs9qBjTWiroHXX7V9rTqcezayEnJdVQhBk3BFqiqAgtG",
+  "lpMint": "Hum4y66Je3mKKpPevTyEERdNGdjRDz3xAVEcXDPwtqfJ",
+  "aTokenVault": "HZeLxbZ9uHtSpwZC3LBr4Nubd14iHwz7bRSghRZf5VCG",
+  "bTokenVault": "E9bbt9jkx92xiFUDLya6YtGpTrwiZYLnMxXbphTPQKJk",
+  "vaultProgram": "24Uqj9JCLxUeoC3hGfh5W3s9FM9uCHDS2SG3LYwBpyTi",
+  "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+  "meteoraDammV1Program": "Eo7WjKq67rjJQSZxS6z3YkapzY3eMj6Xy8X5EQVn5UaB",
+  "reserves": {
+    "aReserve": "26075332903660",
+    "bReserve": "187636145"
+  },
+  "tradeFeeBps": 25,
+  "isStable": false
+}

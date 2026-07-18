@@ -1,0 +1,67 @@
+{
+  "name": "cardo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Web UI for the Rome App Distribution Portal. Handoff scaffold for visual design.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run build:chain-config && next build",
+    "build:chain-config": "tsx scripts/build-chain-config.ts",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integrations": "tsx tests/runner.ts",
+    "test:ui": "playwright test --project=smoke",
+    "test:e2e-funded": "playwright test --project=funded --workers=1",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.96.0",
+    "@rainbow-me/rainbowkit": "^2.2.10",
+    "@rome-protocol/registry": "github:rome-protocol/rome-registry#v0.1.0",
+    "@sentry/nextjs": "^10.53.1",
+    "@solana/wallet-adapter-base": "^0.9.27",
+    "@solana/wallet-adapter-react": "^0.15.39",
+    "@solana/wallet-adapter-react-ui": "^0.9.39",
+    "@solana/wallet-adapter-wallets": "^0.19.38",
+    "@solana/web3.js": "^1.98.4",
+    "@tanstack/react-query": "^5.100.10",
+    "bs58": "^6.0.0",
+    "next": "15.5.18",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "viem": "^2.49.2",
+    "wagmi": "^2.19.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@playwright/test": "^1.61.1",
+    "@solana/spl-governance": "^0.3.28",
+    "@solana/spl-token": "^0.4.14",
+    "@sqds/multisig": "^2.1.4",
+    "@types/node": "^25.8.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^15.5.18",
+    "ethers": "^6.16.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
+    "tsx": "^4.22.0",
+    "typescript": "^5.6.3",
+    "vitest": "^4.1.9"
+  },
+  "overrides": {
+    "axios": ">=1.16.0",
+    "lodash": ">=4.18.0",
+    "hono": ">=4.12.16",
+    "postcss": ">=8.5.10",
+    "protobufjs": ">=7.5.5",
+    "rpc-websockets": {
+      "uuid": "11.1.1"
+    }
+  },
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cardo · Rome Protocol</title>
+  <link rel="stylesheet" href="styles/rome-tokens.css" />
+  <link rel="stylesheet" href="styles/app.css" />
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" src="src/primitives.jsx"></script>
+  <script type="text/babel" src="src/tx-flow.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+  <script type="text/babel" src="src/Home.jsx"></script>
+  <script type="text/babel" src="src/Swap.jsx"></script>
+  <script type="text/babel" src="src/Lend.jsx"></script>
+  <script type="text/babel" src="src/Perps.jsx"></script>
+  <script type="text/babel" src="src/Compose.jsx"></script>
+  <script type="text/babel" src="src/TxReceipt.jsx"></script>
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "accentStrength": "default",
+      "composePathStyle": "horizontal",
+      "heroVariant": "editorial",
+      "densityBoost": false
+    }/*EDITMODE-END*/;
+
+    const ForAgents = ({ onNav }) => (
+      <main className="container" style={{ padding: "40px 32px 96px", maxWidth: 960 }}>
+        <Eyebrow>For agents · MCP + JSON-RPC</Eyebrow>
+        <h1 className="h1" style={{ marginTop: 10 }}>Cardo is <em>machine-readable.</em></h1>
+        <p className="lede" style={{ marginTop: 14, maxWidth: 640 }}>
+          Every surface exposes typed capabilities. Connect via MCP or hit the REST endpoints directly — an agent can quote, sign, and settle against Solana protocols without touching a wallet UI.
+        </p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 36 }}>
+          <div className="card" style={{ padding: 22 }}>
+            <Eyebrow>MCP</Eyebrow>
+            <div className="serif" style={{ fontSize: 22, margin: "6px 0 12px" }}>Model Context Protocol</div>
+            <pre className="mono" style={{ fontSize: 12, background: "var(--rome-paper)", padding: 14, borderRadius: 8, margin: 0, overflowX: "auto" }}>{`{
+  "mcpServers": {
+    "cardo": {
+      "url": "https://cardo.rome.builders/mcp"
+    }
+  }
+}`}</pre>
+            <p className="small" style={{ marginTop: 12 }}>Tools: <span className="mono" style={{ fontSize: 12 }}>rome_cross.swap_a_to_b</span>, <span className="mono" style={{ fontSize: 12 }}>rome_kamino.deposit</span>, <span className="mono" style={{ fontSize: 12 }}>rome_drift.placePerpOrder</span>…</p>
+          </div>
+          <div className="card" style={{ padding: 22 }}>
+            <Eyebrow>JSON-RPC</Eyebrow>
+            <div className="serif" style={{ fontSize: 22, margin: "6px 0 12px" }}>HTTPS endpoints</div>
+            <pre className="mono" style={{ fontSize: 12, background: "var(--rome-paper)", padding: 14, borderRadius: 8, margin: 0, overflowX: "auto" }}>{`POST /apps/rome-cross/quote
+{
+  "amount_in": "1000000",
+  "min_out": "0"
+}`}</pre>
+            <p className="small" style={{ marginTop: 12 }}>Manifest: <a className="mono" style={{ color: "var(--rome-purple)", fontSize: 12 }} href="#">cardo.rome.builders/manifests/</a></p>
+          </div>
+        </div>
+      </main>
+    );
+
+    const parseRoute = () => {
+      const h = window.location.hash.replace(/^#/, "") || "/";
+      return h;
+    };
+
+    const App = () => {
+      const [route, setRoute] = useState(parseRoute());
+      const { values, set: setTweak } = useTweaks(TWEAK_DEFAULTS);
+      const [wallet, setWallet] = useState({ connected: false, address: null, balanceUSD: 0, network: "<chain>" });
+      const [showConnect, setShowConnect] = useState(false);
+
+      useEffect(() => {
+        const onHash = () => setRoute(parseRoute());
+        window.addEventListener("hashchange", onHash);
+        return () => window.removeEventListener("hashchange", onHash);
+      }, []);
+
+      useEffect(() => {
+        document.documentElement.dataset.density = values.densityBoost ? "compact" : "default";
+        document.documentElement.dataset.accent = values.accentStrength;
+      }, [values.densityBoost, values.accentStrength]);
+
+      const onNav = (to) => {
+        window.location.hash = to;
+      };
+      const onConnect = () => setShowConnect(true);
+      const doConnect = () => {
+        setWallet({ connected: true, address: "0x8A3fD21b6c19B4dB1e9A3d5f86a7B9E0C2b9d2b19", balanceUSD: 12_480.42, network: "<chain>" });
+        setShowConnect(false);
+      };
+      const onDisconnect = () => setWallet({ connected: false, address: null, balanceUSD: 0, network: "<chain>" });
+
+      let page = null;
+      if (route === "/") page = <Home onNav={onNav} wallet={wallet} heroVariant={values.heroVariant} />;
+      else if (route.startsWith("/swap")) page = <Swap wallet={wallet} onConnect={onConnect} />;
+      else if (route.startsWith("/lend")) page = <Lend wallet={wallet} onConnect={onConnect} />;
+      else if (route.startsWith("/perps")) page = <Perps wallet={wallet} onConnect={onConnect} />;
+      else if (route.startsWith("/compose")) page = <Compose wallet={wallet} onConnect={onConnect} pathStyle={values.composePathStyle} />;
+      else if (route.startsWith("/tx/")) page = <TxReceipt onNav={onNav} />;
+      else if (route.startsWith("/for-agents")) page = <ForAgents onNav={onNav} />;
+      else page = <Home onNav={onNav} wallet={wallet} heroVariant={values.heroVariant} />;
+
+      return (
+        <div className="shell">
+          <Nav route={route} onNav={onNav} wallet={wallet} onConnect={onConnect} onDisconnect={onDisconnect} onOpenWallet={onDisconnect} />
+          {page}
+          <Footer />
+          {showConnect && <ConnectModal onConnect={doConnect} onClose={() => setShowConnect(false)} />}
+          <TweaksPanel title="Tweaks">
+            <TweakSection title="Home">
+              <TweakRadio label="Hero variant" value={values.heroVariant} options={[
+                { value: "editorial", label: "Editorial" },
+                { value: "structural", label: "Structural" },
+              ]} onChange={(v) => setTweak("heroVariant", v)} />
+            </TweakSection>
+            <TweakSection title="Compose">
+              <TweakRadio label="Path style" value={values.composePathStyle} options={[
+                { value: "horizontal", label: "Horizontal" },
+                { value: "vertical", label: "Vertical" },
+              ]} onChange={(v) => setTweak("composePathStyle", v)} />
+            </TweakSection>
+            <TweakSection title="System">
+              <TweakRadio label="Accent strength" value={values.accentStrength} options={[
+                { value: "default", label: "Default" },
+                { value: "bold", label: "Bold" },
+                { value: "soft", label: "Soft" },
+              ]} onChange={(v) => setTweak("accentStrength", v)} />
+              <TweakToggle label="Density boost" value={values.densityBoost} onChange={(v) => setTweak("densityBoost", v)} />
+            </TweakSection>
+            <TweakSection title="Shortcuts">
+              <TweakButton label="Simulate wallet connect" onClick={doConnect} />
+              <TweakButton label="Go to /tx receipt" onClick={() => onNav("/tx/0x9e4f2b8c")} />
+            </TweakSection>
+          </TweaksPanel>
+        </div>
+      );
+    };
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

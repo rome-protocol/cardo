@@ -1,0 +1,136 @@
+/* Token-types visual grammar — the docs/active/design/token-types-on-rome-evm.md §3.1.
+   Category badges are tiny uppercase mono pills; purple-on-accent-soft for
+   GAS / WRAP / WRAPPED-SPL, stone-400-on-paper for plain ERC20. The
+   collapsible TokenTypesInfo panel keeps the editorial (cream/stone/paper)
+   language of the rest of Cardo — no new theme tokens introduced. */
+
+/* ---------- Category badges (inline, reusable on any row) ---------- */
+.tti-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+/* accent-soft = purple-tinted bg + purple text */
+.tti-badge-native-gas,
+.tti-badge-wrapped-native,
+.tti-badge-wrapped-spl {
+  background: rgba(94, 10, 96, 0.08);
+  color: var(--rome-purple);
+}
+/* paper + stone-400 */
+.tti-badge-erc20 {
+  background: var(--rome-paper);
+  color: var(--rome-stone-400);
+}
+
+/* ---------- Collapsible explainer panel ---------- */
+.token-types-info {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.tti-header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  color: var(--fg1);
+  font: inherit;
+  transition: background 140ms var(--ease-out);
+}
+.tti-header:hover {
+  background: rgba(94, 10, 96, 0.025);
+}
+.tti-header:focus-visible {
+  outline: 2px solid var(--rome-purple);
+  outline-offset: -2px;
+}
+.tti-caret {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--fg2);
+  line-height: 1;
+  min-width: 14px;
+  text-align: center;
+}
+
+.tti-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+.tti-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  padding-top: 12px;
+}
+.tti-row + .tti-row {
+  border-top: 1px solid var(--border-subtle);
+}
+.tti-row .tti-badge {
+  align-self: start;
+  justify-self: start;
+  margin-top: 2px;
+}
+.tti-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.tti-title {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg1);
+  line-height: 1.3;
+}
+.tti-one-liner {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg1);
+}
+.tti-example {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--fg2);
+  line-height: 1.5;
+  font-style: italic;
+}
+.tti-eth {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  margin-top: 2px;
+}
+.tti-eth em {
+  font-family: var(--font-sans);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  color: var(--fg1);
+}

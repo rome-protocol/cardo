@@ -1,0 +1,136 @@
+/* SignatureLedger — the "what will happen" panel. Renders the live
+   signaturePlan: a hero count + the ordered, numbered signature steps with a
+   connector line. Rome brand tokens (purple/cream/serif/mono); the atomic chip
+   reuses the global .badge-atomic. Scoped here to avoid cascade collisions. */
+
+.ledger {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* hero: the true signature count */
+.sigbox {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+}
+.big {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--rome-purple);
+  font-variant-numeric: tabular-nums;
+  min-width: 56px;
+  text-align: center;
+}
+.big.loading {
+  color: var(--fg3);
+}
+.lbl .l1 {
+  font-size: var(--text-body-lg);
+  color: var(--fg1);
+  line-height: var(--lh-tight);
+}
+.lbl .l1 b {
+  font-weight: 600;
+}
+.lbl .l2 {
+  font-size: var(--text-small);
+  color: var(--fg2);
+  line-height: var(--lh-body);
+  margin-top: 4px;
+}
+
+/* ordered signature steps */
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 0;
+}
+.step {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+  position: relative;
+}
+/* connector line between nodes */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 26px;
+  height: calc(100% + 14px);
+  width: 1px;
+  background: var(--border-subtle);
+}
+.node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border-default);
+  background: var(--bg-secondary);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg2);
+  z-index: 1;
+}
+/* the core action node carries the brand accent */
+.step.action .node {
+  border-color: var(--rome-purple);
+  color: var(--rome-purple);
+  font-weight: 600;
+}
+.head {
+  font-size: var(--text-body);
+  color: var(--fg1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 24px;
+}
+.detail {
+  font-size: var(--text-xsmall);
+  color: var(--fg2);
+  margin-top: 3px;
+}
+.detail code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--rome-purple);
+  background: rgba(94, 10, 96, 0.06);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+/* "once" chip on setup steps */
+.once {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  border: 1px solid var(--border-default);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+}
+
+.note {
+  font-size: var(--text-small);
+  color: var(--fg2);
+  line-height: var(--lh-body);
+}
+.note b {
+  color: var(--fg1);
+  font-weight: 600;
+}

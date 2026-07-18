@@ -1,0 +1,92 @@
+# Sourced from: rome-protocol/ops/templates/dependabot/node.yml
+# Next.js (transactional UI; standalone Docker output)
+
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    open-pull-requests-limit: 8
+    labels:
+      - dependencies
+      - node
+    groups:
+      npm-patch-and-minor:
+        update-types:
+          - patch
+          - minor
+        exclude-patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+      framework:
+        patterns:
+          - "next"
+          - "react"
+          - "react-dom"
+        update-types:
+          - patch
+          - minor
+    ignore:
+      - dependency-name: "picomatch"
+      # TypeScript major bumps (e.g. 5→6) introduce new strict-checking rules
+      # that can surface across the whole codebase. Closed PR #70 confirmed.
+      # Patch + minor still flow.
+      - dependency-name: "typescript"
+        update-types:
+          - version-update:semver-major
+      # wagmi 2→3 is a major rewrite of the wallet connection API; needs
+      # deliberate migration alongside RainbowKit. Closed PR #73 confirmed.
+      - dependency-name: "wagmi"
+        update-types:
+          - version-update:semver-major
+      # Next.js majors are tracked migrations (chore-bump-next-16-2-6-* branches);
+      # don't auto-merge solo bumps. Closed PR #71 confirmed.
+      - dependency-name: "next"
+        update-types:
+          - version-update:semver-major
+      # eslint-config-next majors must stay in lockstep with `next` majors —
+      # eslint-config-next 16 imports `zod/v4/core` from a transitive that next
+      # 15.x doesn't hoist, breaking `eslint .` in CI. Bump only as part of the
+      # next-major migration branch.
+      - dependency-name: "eslint-config-next"
+        update-types:
+          - version-update:semver-major
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - ci
+    groups:
+      gh-actions:
+        update-types:
+          - patch
+          - minor
+          - major
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+      day: friday
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+      - docker
+    ignore:
+      # Node major bumps cause cross-platform package-lock.json drift (per
+      # project memory: macOS Node 24 produces a different lockfile than CI's
+      # Node 25). Major Node bumps need deliberate Docker-based regeneration
+      # of the lockfile and broader compatibility verification. Patch + minor
+      # are auto. Closed PR #66 confirmed.
+      - dependency-name: "node"
+        update-types:
+          - version-update:semver-major

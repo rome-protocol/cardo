@@ -1,0 +1,1744 @@
+[
+  {
+    "slug": "121214-martius",
+    "chain": {
+      "chainId": 121214,
+      "name": "Rome Martius",
+      "network": "testnet",
+      "status": "live",
+      "rpcUrl": "https://martius.testnet.romeprotocol.xyz/",
+      "explorerUrl": "https://via-martius.testnet.romeprotocol.xyz/",
+      "romeEvmProgramId": "RomeTaTNPJNBxtB3Wong9geVTtkEFJfUqgktQVq3iSX",
+      "nativeCurrency": {
+        "name": "Rome Martius",
+        "symbol": "USDC",
+        "decimals": 18
+      },
+      "solana": {
+        "cluster": "devnet",
+        "rpc": "https://api.devnet.solana.com"
+      }
+    },
+    "tokens": [
+      {
+        "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "mintId": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "symbol": "USDC",
+        "name": "Rome Martius",
+        "decimals": 18,
+        "kind": "gas"
+      },
+      {
+        "address": "0x2fffdfa11a9cef9210dc34e975649f09119c4efb",
+        "mintId": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "symbol": "wUSDC",
+        "name": "Rome Wrapped USDC",
+        "decimals": 6,
+        "kind": "spl_wrapper"
+      },
+      {
+        "address": "0x03183ee90388c9553fe9c7b019a32ce133b8e58e",
+        "mintId": "6F5YWWrUMNpee8C6BDUc6DmRvYRMDDTgJHwKhbXuifWs",
+        "symbol": "wETH",
+        "name": "Rome Wrapped ETH",
+        "decimals": 8,
+        "kind": "spl_wrapper"
+      },
+      {
+        "address": "0xa4dbecdcc812b9c933967a15fe5d9af420084b2b",
+        "mintId": "So11111111111111111111111111111111111111112",
+        "symbol": "wSOL",
+        "name": "Rome Wrapped SOL",
+        "decimals": 9,
+        "kind": "spl_wrapper"
+      }
+    ],
+    "contracts": [
+      {
+        "name": "ERC20SPLFactory",
+        "versions": [
+          {
+            "address": "0xd7aeeedca26cdd4d34eb7c21110af2e590a8c58a",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_USDC",
+        "versions": [
+          {
+            "address": "0x2fffdfa11a9cef9210dc34e975649f09119c4efb",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WETH",
+        "versions": [
+          {
+            "address": "0x03183ee90388c9553fe9c7b019a32ce133b8e58e",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WSOL",
+        "versions": [
+          {
+            "address": "0xa4dbecdcc812b9c933967a15fe5d9af420084b2b",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "RomeBridgeWithdraw",
+        "versions": [
+          {
+            "address": "0xa79ec05a0ea7b3efeec6d802ee3dca423cbe122a",
+            "version": "1.0.0",
+            "status": "deprecated"
+          },
+          {
+            "address": "0x60e2b02c454be429b0047a237a57d21a68afb560",
+            "version": "2.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "MeteoraDAMMv1Factory",
+        "versions": [
+          {
+            "address": "0xdfe655f64325f93abef8b429387928ef16ba4c5d",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SimpleActivator",
+        "versions": [
+          {
+            "address": "0x8b906e46c70d6428d8771eb7acd9d2e9c0119e4c",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "WETH9",
+        "versions": [
+          {
+            "address": "0x956a4c29210e01d04f183b0215466928158b4dea",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "Multicall3",
+        "versions": [
+          {
+            "address": "0x549afb8019a29ece3ba3b3d9c13208c441a309ea",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV2Factory",
+        "versions": [
+          {
+            "address": "0x2544b995cfd21cc9c3c044561ad2a12d1ce77b59",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV2Router",
+        "versions": [
+          {
+            "address": "0xa5456dafa42d7156d901d50bd7e427b44c43f82b",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "ERC20Factory",
+        "versions": [
+          {
+            "address": "0x32b287ac677a28d23acfd7789aba4b56d63c4bec",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV3Factory",
+        "versions": [
+          {
+            "address": "0x7fbe0271395c57c12761a3d6db80ef1c315c63f8",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SwapRouter",
+        "versions": [
+          {
+            "address": "0xc20fe863b1a2221ad22dcaad2f028b551a700e15",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "NonfungiblePositionManager",
+        "versions": [
+          {
+            "address": "0x656bd31e71a1103a5c21e0c8a72f1dd8e21adde4",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "QuoterV2",
+        "versions": [
+          {
+            "address": "0x34fe53c1b22de2fbe2a10f685b90a6eefedd2b75",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "NFTDescriptor",
+        "versions": [
+          {
+            "address": "0x61e29b18ff987be7c37738774f0625da2aa4772d",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "NonfungibleTokenPositionDescriptor",
+        "versions": [
+          {
+            "address": "0x1abc549a7d5a9437704524cf771432f69970bfc9",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "TickLens",
+        "versions": [
+          {
+            "address": "0xba0aa80f65289e6d6da39cd31c2bc771e2760104",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "V3Migrator",
+        "versions": [
+          {
+            "address": "0x6f018c5ae577ea1bf7683fa4d90f9570e4a279d8",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "BatchReader",
+        "versions": [
+          {
+            "address": "0xc5e6d932bfd2b4da27643848063905f46861fae8",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x15e6907512903889b547c7f29de7533e0ca53c3c",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xff579990aa1a22b2ed7ea90881b63019b51baeca",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "OracleAdapterFactory",
+        "versions": [
+          {
+            "address": "0xbc06fe9603a02ff4aead265c253f5c6303ee5fbb",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x15060ead3d640ad8440e636e66f46ebbea82c3c2",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xc263e6db412953ab2fdbdeddbed6aaf596a3346c",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "PythPullAdapterImpl",
+        "versions": [
+          {
+            "address": "0x2d51445e31dd5adfdb4da335da437400a783c723",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x34e8a7956e70f262156e1bae4696e3d5f9a27e05",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xfb48bbd081b42a1ad78d57061df054322a0385da",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "SwitchboardV3AdapterImpl",
+        "versions": [
+          {
+            "address": "0x330302d325c83088e5257a1b0aa0b64ad7f811d1",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xc17994672233b0512de861dddaa7d2f51d080685",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xf8afa54660b20cb03dd5c1ce912e58781175c5d9",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "CachedPythAdapterImpl",
+        "versions": [
+          {
+            "address": "0x8af3a8d5918a1154d62ac3cc7d7baa03c986d068",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xf610eaef34240fe1e463e1b622cb2a29299d518c",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xd02247e052f9be17618080922fcdd7783cc4638c",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "CachedFeedAdapterImpl",
+        "versions": [
+          {
+            "address": "0x611b80fcc57ca7e61f22ec78e0f1d000d845d05f",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xe812e13404ee4658f44bda6654d28d27ce634aff",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x863bf848df43758ee5cbb83b775e283e64b42a76",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WBTC",
+        "versions": [
+          {
+            "address": "0x34ae37cfa1f41f5e69d8f042f7455a63a4f048b8",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WJITOSOL",
+        "versions": [
+          {
+            "address": "0x8a27e495cead6ecbbe25b537dbf666fd6bfe01e3",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WMSOL",
+        "versions": [
+          {
+            "address": "0xe6fd55a93caecf0f9cf60fbc4d2cbe0d71b54491",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WJUP",
+        "versions": [
+          {
+            "address": "0x71dc1c088e17ccd67058c626a358e02f6ebaac69",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WJTO",
+        "versions": [
+          {
+            "address": "0xcb1e4cd61704c9fcc196ce98619e85a241383fd8",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "SPL_ERC20_WBONK",
+        "versions": [
+          {
+            "address": "0x2c71373725c59b3f1d47a0d425b7050d02e014b4",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      }
+    ],
+    "oracle": {
+      "factory": "0xbc06fe9603a02ff4aead265c253f5c6303ee5fbb",
+      "feeds": {
+        "SOL/USD": {
+          "address": "0x91A0bEA63E77443dc6508857124b75f4fe96e482"
+        },
+        "BTC/USD": {
+          "address": "0xA6E9B05E875c4413c644e0Ec9646670C58F06c1D"
+        },
+        "ETH/USD": {
+          "address": "0x6cad0B6668D23910fe1605Dab1c6EaF3675611c3"
+        },
+        "USDC/USD": {
+          "address": "0x337C96E780f8F0eF9d885A320de71093FaFBd835"
+        },
+        "USDT/USD": {
+          "address": "0x9a95d834B067B4b52423a1635E567B211246F72d"
+        },
+        "JUP/USD": {
+          "address": "0xAeB5EC137d0721CF6A1F80cE5D513F8db410C301"
+        },
+        "JTO/USD": {
+          "address": "0xf54A700F09c3E24E46118c134441C2a4c2270644"
+        },
+        "JITOSOL/USD": {
+          "address": "0xDBCb1E24a690CC3E2CB21fa4923C7C41e3480696"
+        },
+        "MSOL/USD": {
+          "address": "0xA2Cd26dFe82727033442E74E2491c4c34A4269A2"
+        },
+        "BONK/USD": {
+          "address": "0x79b2aCC9AFC4B6207Faa53536bED2DfD92b483a0"
+        },
+        "SOL/USD-SB": {
+          "address": "0x5527952F0737383e7Ef46a1B16eC8D0149e78C97"
+        },
+        "SOL/USD-CACHEDPYTH": {
+          "address": "0xeeb0172E815a466aCA394A0c95667b49C035b7Ef"
+        },
+        "BTC/USD-CACHEDPYTH": {
+          "address": "0x6612E7fE6200c3D941c4eE388eC226bAde11EB1D"
+        },
+        "ETH/USD-CACHEDPYTH": {
+          "address": "0xDe1AAB1A538775D680657f33fCB5c96ECC6f89b9"
+        },
+        "USDC/USD-CACHEDPYTH": {
+          "address": "0x6d54967f3ec59126520fD92B3c5417f4778f6C3B"
+        },
+        "USDT/USD-CACHEDPYTH": {
+          "address": "0xD5315AB7488D0d5da402c70Ca808b68c23b8243F"
+        },
+        "JUP/USD-CACHEDPYTH": {
+          "address": "0x2F9A54aC49218a6771A329D18a5F3699ef228f5d"
+        },
+        "JTO/USD-CACHEDPYTH": {
+          "address": "0x11e4B2688140C29dd45354c841c355Babd4Cd2C5"
+        },
+        "JITOSOL/USD-CACHEDPYTH": {
+          "address": "0xF1C001d3bc2b981f563fd847c92aF0695D547771"
+        },
+        "MSOL/USD-CACHEDPYTH": {
+          "address": "0x41Dbb3b23CE2596744b07576332891064509CD57"
+        },
+        "BONK/USD-CACHEDPYTH": {
+          "address": "0xad6456Bc42F456ECbAd542fab37D59f5e0eC25a7"
+        },
+        "SOL/USD-CACHED": {
+          "address": "0x4ea1D613bB5dceD95F708F1646c92C45c8b4a179"
+        },
+        "BTC/USD-CACHED": {
+          "address": "0x16f73C99d9450670e74C29849C1e9D0A998d2903"
+        },
+        "ETH/USD-CACHED": {
+          "address": "0xAC6d0A061f875169E8B674642fce8290dF357958"
+        },
+        "USDC/USD-CACHED": {
+          "address": "0x119fF3d9054a20560DE9EF0E1d59A9149A387037"
+        },
+        "USDT/USD-CACHED": {
+          "address": "0xbe7Ba706a3Ce74BaaB913000f0b77D0063A2A95B"
+        },
+        "JUP/USD-CACHED": {
+          "address": "0xd33F53163d076146A051a641329Bb75E567ec40E"
+        },
+        "JTO/USD-CACHED": {
+          "address": "0xFA17DcD2e14D293F3EFC239F5e1Ccd904C917C6F"
+        },
+        "JITOSOL/USD-CACHED": {
+          "address": "0x1824927C559707f5d9570b2a57a149d20c0f19A1"
+        },
+        "MSOL/USD-CACHED": {
+          "address": "0xDA5BB8eB07D4294361c25e1F03163bDd481f805d"
+        },
+        "BONK/USD-CACHED": {
+          "address": "0x6b554C435Bae33dc18907Ab760b0E2e417b6429e"
+        }
+      }
+    },
+    "bridge": {
+      "cctpIrisApiBase": "https://iris-api-sandbox.circle.com",
+      "wormholescanBaseUrl": "https://api.testnet.wormholescan.io",
+      "sourceEvm": {
+        "chainId": 11155111,
+        "name": "Sepolia",
+        "rpcUrl": "https://ethereum-sepolia-rpc.publicnode.com",
+        "cctpDomain": 0,
+        "cctpVersion": 2,
+        "cctpTokenMessenger": "0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5",
+        "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+        "cctpMessageTransmitter": "0x7865fAfC2db2093669d92c0F33AeEF291086BEFD",
+        "cctpMessageTransmitterV2": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275",
+        "wormholeTokenBridge": "0xDB5492265f6038831E89f495670FF909aDe94bd9"
+      },
+      "sourceEvms": [
+        {
+          "chainId": 10143,
+          "name": "Monad Testnet",
+          "rpcUrl": "https://testnet-rpc.monad.xyz",
+          "explorerUrl": "https://testnet.monadexplorer.com",
+          "cctpDomain": 15,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 80002,
+          "name": "Polygon Amoy",
+          "rpcUrl": "https://rpc-amoy.polygon.technology",
+          "explorerUrl": "https://amoy.polygonscan.com",
+          "cctpDomain": 7,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 421614,
+          "name": "Arbitrum Sepolia",
+          "rpcUrl": "https://sepolia-rollup.arbitrum.io/rpc",
+          "explorerUrl": "https://sepolia.arbiscan.io",
+          "cctpDomain": 3,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 84532,
+          "name": "Base Sepolia",
+          "rpcUrl": "https://sepolia.base.org",
+          "explorerUrl": "https://sepolia.basescan.org",
+          "cctpDomain": 6,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 43113,
+          "name": "Avalanche Fuji",
+          "rpcUrl": "https://api.avax-test.network/ext/bc/C/rpc",
+          "explorerUrl": "https://testnet.snowtrace.io",
+          "cctpDomain": 1,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        }
+      ],
+      "solana": {
+        "cctpDomain": 5,
+        "cctpMessageTransmitterProgram": "CCTPmbSD7gX1bxKPAmg77w8oFzNFpaQiQUWD43TKaecd",
+        "cctpMessageTransmitterProgramV2": "CCTPV2Sm4AdWt5296sk4P66VBZ7bEhcARwFaaS9YPbeC",
+        "cctpTokenMessengerMinterProgram": "CCTPiPYPc6AsJuwueEnWgSgucamXDZwBd53dQ11YiKX3",
+        "cctpTokenMessengerMinterProgramV2": "CCTPV2vPZJS2u2BBsUoscuikbYjnpFmbFsvVuJdgUMQe"
+      },
+      "assets": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Wrapped Ether",
+          "decimals": 8,
+          "solanaMint": "6F5YWWrUMNpee8C6BDUc6DmRvYRMDDTgJHwKhbXuifWs",
+          "sourceEvm": {
+            "address": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+            "protocol": "wormhole"
+          }
+        },
+        {
+          "id": "usdc-monad",
+          "symbol": "USDC",
+          "name": "USD Coin (from Monad)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x534b2f3A21130d7a60830c2Df862319e593943A3",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-polygon",
+          "symbol": "USDC",
+          "name": "USD Coin (from Polygon Amoy)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-arbitrum",
+          "symbol": "USDC",
+          "name": "USD Coin (from Arbitrum Sepolia)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-base",
+          "symbol": "USDC",
+          "name": "USD Coin (from Base Sepolia)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-avax",
+          "symbol": "USDC",
+          "name": "USD Coin (from Avalanche Fuji)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x5425890298aed601595a70AB815c96711a31Bc65",
+            "protocol": "cctp"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "slug": "200010-hadrian",
+    "chain": {
+      "chainId": 200010,
+      "name": "Rome Hadrian",
+      "network": "devnet",
+      "status": "live",
+      "rpcUrl": "https://hadrian.testnet.romeprotocol.xyz/",
+      "explorerUrl": "https://via-hadrian.testnet.romeprotocol.xyz/",
+      "romeEvmProgramId": "RPTWwELXAY4KC9ZPHhaxp7Sq1hHtU3HNEgLbSegCcWf",
+      "nativeCurrency": {
+        "name": "Rome Hadrian",
+        "symbol": "USDC",
+        "decimals": 18
+      },
+      "solana": {
+        "cluster": "devnet",
+        "explorerUrl": "https://explorer.solana.com",
+        "rpc": "https://api.devnet.solana.com"
+      }
+    },
+    "tokens": [
+      {
+        "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "mintId": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "symbol": "USDC",
+        "name": "Rome Hadrian",
+        "decimals": 18,
+        "kind": "gas"
+      },
+      {
+        "address": "0xd4cc34b67c805d472b5a709a22a1037f6b16ef28",
+        "mintId": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+        "symbol": "wUSDC",
+        "name": "Rome Wrapped USDC",
+        "decimals": 6,
+        "kind": "spl_wrapper"
+      },
+      {
+        "address": "0x8c2c1486cadf7d07312908a065f14af65f56be7e",
+        "mintId": "6F5YWWrUMNpee8C6BDUc6DmRvYRMDDTgJHwKhbXuifWs",
+        "symbol": "wETH",
+        "name": "Rome Wrapped ETH",
+        "decimals": 8,
+        "kind": "spl_wrapper"
+      },
+      {
+        "address": "0x1dece035621c65a90349b56a801068b439fa4201",
+        "mintId": "So11111111111111111111111111111111111111112",
+        "symbol": "wSOL",
+        "name": "Rome Wrapped SOL",
+        "decimals": 9,
+        "kind": "spl_wrapper"
+      }
+    ],
+    "contracts": [
+      {
+        "name": "ERC20SPLFactory",
+        "versions": [
+          {
+            "address": "0x86149124d74ebb3aa41a19641b700e88202b6285",
+            "version": "6.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x51f0694aa0c47bd3e9a8c0bf68a35bd6d2738302",
+            "version": "5.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xca1aad95ed6b8b798fbf5366db469d46f16aca0b",
+            "version": "4.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x3c971ea1c7cf7a1b0a8af46f8a9e0648a82f9869",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x21cc267ff924aeca4de781db9b5bdf7a4c495e72",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xf4504274e1a383146c39935bd5eff2edbb193c37",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "RomeBridgePaymaster",
+        "versions": [
+          {
+            "address": "0xe5b515d69590044a994d88c8bb8a87b36cd7b6d2",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xf83cc7f68c91deb0d1909d120753fd1c84f70a13",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xa4d36ce26676c50949bb919b8a9b2b8ddc8937f5",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "RomeBridgeWithdraw",
+        "versions": [
+          {
+            "address": "0x65fc94ba1045b65889f0b27d3d02e5bfbc2aee03",
+            "version": "9.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xd2161cd539c20f0cb1cbf5bf9a8456cd16c9034f",
+            "version": "8.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xc1543b5efbeb98ff63506541b146c6fa3060b394",
+            "version": "7.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x9975fe4b721bf52f2a5bcc795fa2e29edc50de8b",
+            "version": "6.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x8510803f89eda2e5ade77b27ded8a0fb96a3042f",
+            "version": "5.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x99a8b0bda3ef1d829f28405eb9c69986333a50d6",
+            "version": "4.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x5dbe5e8b3697516637cc967b428b0d903c93bb43",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xf48902e4a30f5d9b93dd0a9c0c0ab379ce37587c",
+            "version": "2.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "OracleAdapterFactory",
+        "versions": [
+          {
+            "address": "0xe68e7bc697010c73f1798b356f8ae2f0ba1319db",
+            "version": "4.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x9be249718c5c066d98fead6bfbb214ca0787f870",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xcf67d0f88ecddc42135c5b4e8620f32846546b12",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xe03d8af4fd281b409de74c58784aabacd9f1300b",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "PythPullAdapterImpl",
+        "versions": [
+          {
+            "address": "0x2bf3660f61b88b4c55a492b61fc98834a212f3f3",
+            "version": "4.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xea0bc9643c462fafc470873f85ee57d1ac2bbcaf",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x96b313ed492a5263bc42f62e2b440b54442cdc38",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x75e515fc087c03cad8a1d39aa2d2cc0a2fe60419",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "SwitchboardV3AdapterImpl",
+        "versions": [
+          {
+            "address": "0x12e2961bde486b69910c64d802a09aae9dee8e7d",
+            "version": "4.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x43cbe9c67e35c7f401fa76d8ce06595e004d2a63",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xc66d1c5291f7e4ddf2fc47a335fc532626599c6b",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x83b38374c33be2d06fef00888347d79013c3e4cc",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "BatchReader",
+        "versions": [
+          {
+            "address": "0x306d670dff7f51ae33f263f5122bd2b18d98adc7",
+            "version": "4.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xc1224fe8d9eaeef34376ff4b24db360d5e10163e",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x4fd88a8d5044ffff49a094305542e551df3d041e",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xdd81057fb8659d7631798b2814be7b6f791cba4a",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "MeteoraDAMMv1Factory",
+        "versions": [
+          {
+            "address": "0xd68b355f62643de0ec40243cba8f699f959ea3c4",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xa3a4a27567f12133f3fe90c11403518c922de185",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x040f9c2671b2b0c70b32c10727afcdbbf23b92fb",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "SimpleActivator",
+        "versions": [
+          {
+            "address": "0xc478604d116222190750fe9a52dd3d6ae9140212",
+            "version": "4.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x6f09def2c283fa5c10616ca440846760ae6e4382",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xfbf6fc29e432c7b20039bae4087d843292b71f7d",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x9b0f6789ed5de256a37b7b9c5be0011c7ea851e5",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "WrappedRSOL",
+        "versions": [
+          {
+            "address": "0x1932E62Fc65B2C9ECA94D1439d72214007035a1b",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xbc899af4cb358a18b1218cccf66aa176605ee2af",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xbf2662a462b7c594f5737905aaea7edd21e202ce",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "Multicall3",
+        "versions": [
+          {
+            "address": "0xb7180d3c46632b582b99d9af3daae394fab9ae4c",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x243fb3f0cfc2a6c29ad4754667be7ca76940e5c0",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xfa3d3246e695aef1ab6dec195a453663a836fbd5",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV2Factory",
+        "versions": [
+          {
+            "address": "0xbFBcC5601A55582093Df98ea555265BdC9421Ea9",
+            "version": "5.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x820EEeF0ED21e2Ecf8f065DDA05488A0ea153b7b",
+            "version": "4.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x320b4b7fee2fF7B2220B533384A12dd6657da701",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x6e72d4765e300dec64586a46de7c20ab81ad22d0",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x7a27a84f6d79e8f5e2ddb146b78bdbfbf37539e5",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV2Router02",
+        "versions": [
+          {
+            "address": "0xe98268690DF651b355fDc3E4dbfCFD51454c0089",
+            "version": "5.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xC9EeCF17449D51636F69F9e892844796339BE84f",
+            "version": "4.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x0EFEc612B7c3E3E1708a2d57BC39D97F8fa201a7",
+            "version": "3.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xa9ffa16820cb6ee1a3087b603affa4296c7c9149",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xb342f70d56855f11b0721fcbe2804a200d0f0533",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "RomeswapMinimalRouter",
+        "versions": [
+          {
+            "address": "0x0986CAfEC1214Ef4Cfc046A59743DAA7eAd0BFcb",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0xcdfd95b2ca344cc545e27e52ecb72bf665e3e0f4",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "ERC20Factory",
+        "versions": [
+          {
+            "address": "0x22e4A9191Bb5e7dD211c42A4d480879E603db6c1",
+            "version": "3.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x3fd3045c879cfa213e61a1e0eff89f498a568522",
+            "version": "2.0.0",
+            "status": "retired"
+          },
+          {
+            "address": "0x283a1d9c1fa19593070abe676f03ca384d31242f",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV3Factory",
+        "versions": [
+          {
+            "address": "0xD9E323088561D40267767b52252595ea9cF1D5bD",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x9c0d3B1EBe19592ecd584023bEd0D607FfeebcCA",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "SwapRouter",
+        "versions": [
+          {
+            "address": "0x08CA15F54b2bf33AB695548B08101d7174eF83cA",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xa683D06d9bc8188290EcCe7D2424112B04440579",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "NonfungiblePositionManager",
+        "versions": [
+          {
+            "address": "0x0D2BCEb16fF7D7c209083F8Cd33176e221084d1B",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x2e80080b06F51C7265Bd3f0004A0bf99323659C2",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "QuoterV2",
+        "versions": [
+          {
+            "address": "0x7BdBFbdAEB2ed0E8DA6F7FD8804bE11f86BB68dd",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x950201A04E478eF3a0bbc78d5B3E255Ef92Dffa7",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "NFTDescriptor",
+        "versions": [
+          {
+            "address": "0x6C8fFeFCC01Af82Ba52736e5EFD3Fb7b608943e2",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x8B1Ff7EE5128c6274317689418c5d0288809E020",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "NonfungibleTokenPositionDescriptor",
+        "versions": [
+          {
+            "address": "0x351c5C00330077234827Cb14D7b2D37153aEE5fc",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x7a4395c033C8D85cea52c9F92503677fd8413fec",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "TickLens",
+        "versions": [
+          {
+            "address": "0x357D65dAc11B769F9a80D9Dc21459a2D177324e3",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x47A67b32E3a8F469B2b97655BC38e4608Ee8B78D",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "V3Migrator",
+        "versions": [
+          {
+            "address": "0xE90244bC8F01F19AC3752f3e65C7AfC638687475",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x8B6C969365CaceF35F99657c332A5F49C6EEf8D0",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "PoolAddressesProvider",
+        "versions": [
+          {
+            "address": "0x72329174d4d8c557C43D1c3eA9EEe74f15598473",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0xE06bFcfDe7b5425fCFC4D6eC392150DC75bF50e4",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "ACLManager",
+        "versions": [
+          {
+            "address": "0xd71B29F17861dE5a67551B494Dbd2eC2438bB87f",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x6F80aC2aD821333FE16e12228841A95Ab56b080a",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "AavePool",
+        "versions": [
+          {
+            "address": "0x54701445dD60E29152eD7B4d78e4091c7678c58C",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x9352FBc7D4165ADE9422a62087DdD79595B6f521",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "PoolConfigurator",
+        "versions": [
+          {
+            "address": "0x8bc4d597153188317f3Ec175f546efdAe497c037",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x62121cF2ee89DA281cE2c56b04c5B7F95a471DA7",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "AaveOracle",
+        "versions": [
+          {
+            "address": "0xafb20337173c62241B9Fee64ffCd53f6a9Dd90D5",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x3A467E30a0d12b793F21541965f76691E0Bd4B32",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "AaveProtocolDataProvider",
+        "versions": [
+          {
+            "address": "0xd06528561115fdaeED8E1b066B589469EB5fE6Fb",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x1F6cD261ca60B595E1494782B49EDE4F33FbD775",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "DefaultReserveInterestRateStrategyV2",
+        "versions": [
+          {
+            "address": "0x1B06B94b068E3EE08896D97199663Dc3E5f8D2F4",
+            "version": "2.0.0",
+            "status": "live"
+          },
+          {
+            "address": "0x3DcE894f46e5d8736cC84e51B4F6520577697c8e",
+            "version": "1.0.0",
+            "status": "retired"
+          }
+        ]
+      },
+      {
+        "name": "AaveAToken-wUSDC",
+        "versions": [
+          {
+            "address": "0xc8b14eA508d5d4a542cE3d099d11Ce4bD296cc42",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "AaveAToken-wETH",
+        "versions": [
+          {
+            "address": "0x95A0F06deF3067e2D16cCC7C45a7C9E8CA50CEAE",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "AaveVariableDebtToken-wETH",
+        "versions": [
+          {
+            "address": "0x1c88f3FA4CA22612ce5CCbe3Aa6053B9516831fd",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "Permit2",
+        "versions": [
+          {
+            "address": "0x8f0003BF88fD5C2f0d396F2FFC3596c9E7C7C342",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4PoolManager",
+        "versions": [
+          {
+            "address": "0x8a281Be9B5173B2F52328437eAa0d272791707f7",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4PositionManager",
+        "versions": [
+          {
+            "address": "0xbdF877D66CAb596a3C47Be42e7AE0b51365F6BC5",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4PositionDescriptor",
+        "versions": [
+          {
+            "address": "0xfE4fBd80CA745ecc0a27998Be089B96E242eF4F5",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4StateView",
+        "versions": [
+          {
+            "address": "0xAEC15915a24Ed942BA1dbb7f1546ff5F2712a480",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4Quoter",
+        "versions": [
+          {
+            "address": "0xf6d828B97604c82C834B090C83043C0cb15F1487",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "UniswapV4UniversalRouter",
+        "versions": [
+          {
+            "address": "0xF2e9e8Da7587b4C6e2fd8c2F89171ff2F5f81e74",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "CachedPythAdapterImpl",
+        "versions": [
+          {
+            "address": "0xb578b3fff26b0c099945b7c35c37f4768225b6b0",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      },
+      {
+        "name": "CachedFeedAdapterImpl",
+        "versions": [
+          {
+            "address": "0x78346e04192a439ad470908241bb2c78b29b2736",
+            "version": "1.0.0",
+            "status": "live"
+          }
+        ]
+      }
+    ],
+    "oracle": {
+      "factory": "0xe68e7bc697010c73f1798b356f8ae2f0ba1319db",
+      "feeds": {
+        "SOL/USD": {
+          "address": "0x76b92646D63FB1AFEa687C7Dac48b437bF99C1B4"
+        },
+        "BTC/USD": {
+          "address": "0x7A2c1d1348c22ADafa922A2E77C6c79f84856eD3"
+        },
+        "ETH/USD": {
+          "address": "0xfA609C77bbBC4fD118Eea7f8f65B3407758E6E9A"
+        },
+        "USDC/USD": {
+          "address": "0x1dEcD0e03EFE962bfbc3168C0B03eB696e0Acd0d"
+        },
+        "USDT/USD": {
+          "address": "0xeb6F631d23a4104e1a0F8B53Ecf4Ad1A1BcBC327"
+        },
+        "JUP/USD": {
+          "address": "0x657b15CfeF85fDF9D0738d23B007d36a1D89E874"
+        },
+        "JTO/USD": {
+          "address": "0x4d9dAcdE658534830cBa3E923c8A13E0E8c2cEFa"
+        },
+        "JITOSOL/USD": {
+          "address": "0x684f45e2d4B7C5D78daF42bBbe612b875Dd09164"
+        },
+        "MSOL/USD": {
+          "address": "0xF0a6308314757ccb265ee267Ac3cAf95E2288D55"
+        },
+        "BONK/USD": {
+          "address": "0xD7f886853b8efd04202961723387D2195d5023d4"
+        },
+        "SOL/USD-SB": {
+          "address": "0x6f9ce64835ee1817226B82977da5c93B4807DFd3"
+        },
+        "SOL/USD-CACHEDPYTH": {
+          "address": "0x10bc6e0d73ee80e9123C449eF3cC46cDAAA43BfE"
+        },
+        "BTC/USD-CACHEDPYTH": {
+          "address": "0x5c9A034759e73d6421974AE134E3c5cF277aFfD2"
+        },
+        "ETH/USD-CACHEDPYTH": {
+          "address": "0xF057C6FAb28D3A6A37ef50288e75292cc96F09bB"
+        },
+        "USDC/USD-CACHEDPYTH": {
+          "address": "0xcBA03a348D84bE48Da2e67E78d0EC3e19AbBF731"
+        },
+        "USDT/USD-CACHEDPYTH": {
+          "address": "0x2Da4D76c44018C11389a7ed123Dc2dB670c93bA2"
+        },
+        "JUP/USD-CACHEDPYTH": {
+          "address": "0x8dfd8476ac2d4aa6F22EF348De1Ff3f55aAe4109"
+        },
+        "JTO/USD-CACHEDPYTH": {
+          "address": "0xcaA8FE228e00A5A6CFfa4559cC5549575ABe9D43"
+        },
+        "JITOSOL/USD-CACHEDPYTH": {
+          "address": "0x0e6595A95B82a8A93d23Eec2509C15731dAA7F3e"
+        },
+        "MSOL/USD-CACHEDPYTH": {
+          "address": "0xc78a1075bD3A26aC4aE6b60B9610e4b8b53fF691"
+        },
+        "BONK/USD-CACHEDPYTH": {
+          "address": "0xF6F2377f894129A1DE67e97f6Ab7c2514845D9B1"
+        },
+        "SOL/USD-CACHED": {
+          "address": "0xe587AbaBdD9859347C315fbccB1f42d195a88509"
+        },
+        "BTC/USD-CACHED": {
+          "address": "0x0884DfED2Fa174ab1F309359c53a4f46FB271060"
+        },
+        "ETH/USD-CACHED": {
+          "address": "0xBdeEA9602C252c6D75a46815dbadaa3E4B644Da9"
+        },
+        "USDC/USD-CACHED": {
+          "address": "0xf9c75395B5FBc7E312Bf5111AF02252373036bbd"
+        },
+        "USDT/USD-CACHED": {
+          "address": "0xe9d090f31df93cC0D7B91671fed73e7971EF9608"
+        },
+        "JUP/USD-CACHED": {
+          "address": "0x8fc8A4725114642Ad605ee126017Cdbd743a8daf"
+        },
+        "JTO/USD-CACHED": {
+          "address": "0x2832e31adb4afb72500bE0B29e9683FF21F9D6CD"
+        },
+        "JITOSOL/USD-CACHED": {
+          "address": "0x257BAc637e550A1549042B7cD407965c138Dd0F2"
+        },
+        "MSOL/USD-CACHED": {
+          "address": "0xb540627900f2D770AD8CA7f7F0D72c25c14eF315"
+        },
+        "BONK/USD-CACHED": {
+          "address": "0x7b62655daA7b9e0e5FB0037330040CeBD151A6Fc"
+        }
+      }
+    },
+    "bridge": {
+      "cctpIrisApiBase": "https://iris-api-sandbox.circle.com",
+      "wormholescanBaseUrl": "https://api.testnet.wormholescan.io",
+      "sourceEvm": {
+        "chainId": 11155111,
+        "name": "Sepolia",
+        "rpcUrl": "https://ethereum-sepolia-rpc.publicnode.com",
+        "explorerUrl": "https://sepolia.etherscan.io",
+        "cctpDomain": 0,
+        "cctpVersion": 2,
+        "cctpTokenMessenger": "0x9f3B8679c73C2Fef8b59B4f3444d4e156fb70AA5",
+        "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+        "cctpMessageTransmitter": "0x7865fAfC2db2093669d92c0F33AeEF291086BEFD",
+        "cctpMessageTransmitterV2": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275",
+        "wormholeChainId": 10002,
+        "wormholeCoreBridge": "0x4a8bc80Ed5a4067f1CCf107057b8270E0cC11A78",
+        "wormholeTokenBridge": "0xDB5492265f6038831E89f495670FF909aDe94bd9"
+      },
+      "sourceEvms": [
+        {
+          "chainId": 10143,
+          "name": "Monad Testnet",
+          "rpcUrl": "https://testnet-rpc.monad.xyz",
+          "explorerUrl": "https://testnet.monadexplorer.com",
+          "cctpDomain": 15,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 80002,
+          "name": "Polygon Amoy",
+          "rpcUrl": "https://rpc-amoy.polygon.technology",
+          "explorerUrl": "https://amoy.polygonscan.com",
+          "cctpDomain": 7,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 421614,
+          "name": "Arbitrum Sepolia",
+          "rpcUrl": "https://sepolia-rollup.arbitrum.io/rpc",
+          "explorerUrl": "https://sepolia.arbiscan.io",
+          "cctpDomain": 3,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 84532,
+          "name": "Base Sepolia",
+          "rpcUrl": "https://sepolia.base.org",
+          "explorerUrl": "https://sepolia.basescan.org",
+          "cctpDomain": 6,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        },
+        {
+          "chainId": 43113,
+          "name": "Avalanche Fuji",
+          "rpcUrl": "https://api.avax-test.network/ext/bc/C/rpc",
+          "explorerUrl": "https://testnet.snowtrace.io",
+          "cctpDomain": 1,
+          "cctpVersion": 2,
+          "cctpTokenMessenger": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpTokenMessengerV2": "0x8FE6B999Dc680CcFDD5Bf7EB0974218be2542DAA",
+          "cctpMessageTransmitter": "0xE737e5cEBEEBa77EFE34D4aa090756590b1CE275"
+        }
+      ],
+      "solana": {
+        "cctpDomain": 5,
+        "cctpMessageTransmitterProgram": "CCTPmbSD7gX1bxKPAmg77w8oFzNFpaQiQUWD43TKaecd",
+        "cctpMessageTransmitterProgramV2": "CCTPV2Sm4AdWt5296sk4P66VBZ7bEhcARwFaaS9YPbeC",
+        "cctpTokenMessengerMinterProgram": "CCTPiPYPc6AsJuwueEnWgSgucamXDZwBd53dQ11YiKX3",
+        "cctpTokenMessengerMinterProgramV2": "CCTPV2vPZJS2u2BBsUoscuikbYjnpFmbFsvVuJdgUMQe"
+      },
+      "assets": [
+        {
+          "id": "usdc",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "eth",
+          "symbol": "ETH",
+          "name": "Wrapped Ether",
+          "decimals": 8,
+          "solanaMint": "6F5YWWrUMNpee8C6BDUc6DmRvYRMDDTgJHwKhbXuifWs",
+          "sourceEvm": {
+            "address": "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+            "protocol": "wormhole"
+          }
+        },
+        {
+          "id": "usdc-monad",
+          "symbol": "USDC",
+          "name": "USD Coin (from Monad)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x534b2f3A21130d7a60830c2Df862319e593943A3",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-polygon",
+          "symbol": "USDC",
+          "name": "USD Coin (from Polygon Amoy)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x41E94Eb019C0762f9Bfcf9Fb1E58725BfB0e7582",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-arbitrum",
+          "symbol": "USDC",
+          "name": "USD Coin (from Arbitrum Sepolia)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x75faf114eafb1BDbe2F0316DF893fd58CE46AA4d",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-base",
+          "symbol": "USDC",
+          "name": "USD Coin (from Base Sepolia)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+            "protocol": "cctp"
+          }
+        },
+        {
+          "id": "usdc-avax",
+          "symbol": "USDC",
+          "name": "USD Coin (from Avalanche Fuji)",
+          "decimals": 6,
+          "solanaMint": "4zMMC9srt5Ri5X14GAgXhaHii3GnPAEERYPJgZJDncDU",
+          "sourceEvm": {
+            "address": "0x5425890298aed601595a70AB815c96711a31Bc65",
+            "protocol": "cctp"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,114 @@
+# Lightweight PR-time gate. Runs on every PR and catches code-level
+# regressions (npm install conflicts, type errors, broken next build,
+# eslint regressions) without paying for the full Docker build.
+#
+# Mirrors rome-register-chain / the sovereign portal / the Rome explorer /
+# the Rome web app pr-validate.yml conventions: SHA-based concurrency (merges
+# Dependabot push + pull_request runs sharing the same head SHA).
+#
+# Cardo-specific notes:
+# - --legacy-peer-deps is required: next@15 declares a -rc React peer;
+#   cardo runs stable React 19. See Dockerfile + cardo/CLAUDE.md.
+# - @rome-protocol/registry is a private github: dep. npm/pacote's git
+#   fetcher hardcodes ssh-first for GitHub deps regardless of lockfile or
+#   env, so we sidestep it: actions/checkout the registry repo as a
+#   sibling using the App token, then `npm ci` against a synthesized
+#   package.json that overrides @rome-protocol/registry to file:../registry.
+#   App 3339932 (cross-repo-checkout-action) provides contents:read across
+#   rome-protocol repos via vars.CROSS_REPO_APP_ID +
+#   secrets.CROSS_REPO_APP_PRIVATE_KEY.
+
+name: PR validate
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  frontend:
+    name: Frontend (Next.js)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Mint App token for private registry dep
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ vars.CROSS_REPO_APP_ID }}
+          private-key: ${{ secrets.CROSS_REPO_APP_PRIVATE_KEY }}
+          owner: rome-protocol
+
+      - name: Checkout cardo
+        uses: actions/checkout@v6
+        with:
+          path: cardo
+
+      # The sibling checkout must be the PINNED ref from package.json, not
+      # main: the committed lib/chain-config.generated.json is projected from
+      # the pin (tests/chain-config-generated.test.ts asserts exactly that),
+      # and the Docker build clones the same pin — an unpinned checkout makes
+      # this gate go red whenever registry main advances past the pin.
+      - name: Resolve registry pin from the package.json dep ref
+        id: registry-pin
+        working-directory: cardo
+        run: |
+          ref="$(node -p "require('./package.json').dependencies['@rome-protocol/registry'].split('#')[1]")"
+          # Guard: a git ref only — no newlines/metacharacters reach the
+          # checkout ref: input or the step-output file.
+          if ! printf '%s' "$ref" | grep -Eq '^[A-Za-z0-9._/-]+$'; then
+            echo "unparseable @rome-protocol/registry pin: '$ref'" >&2; exit 1
+          fi
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout rome-protocol/registry (sibling, at the pin)
+        uses: actions/checkout@v6
+        with:
+          repository: rome-protocol/registry
+          token: ${{ steps.app-token.outputs.token }}
+          path: registry
+          ref: ${{ steps.registry-pin.outputs.ref }}
+
+      - uses: actions/setup-node@v6
+        with:
+          # Match Dockerfile (node:25-alpine). Bump in lockstep.
+          node-version: '25'
+          cache: 'npm'
+          cache-dependency-path: cardo/package-lock.json
+
+      - name: Install dependencies (registry via sibling checkout)
+        # npm/pacote insists on cloning github: deps via ssh:// even when
+        # GITHUB_TOKEN is set + lockfile pins git+https. Sidestep by
+        # rewriting package.json's registry dep to file:../registry then
+        # regenerating the lockfile. Loses the original lockfile's
+        # strict pinning for this one dep — acceptable for PR validation
+        # since Dependabot operates on the committed lockfile shape.
+        working-directory: cardo
+        run: |
+          npm pkg set 'dependencies.@rome-protocol/registry=file:../registry'
+          rm -f package-lock.json
+          npm install --legacy-peer-deps --no-audit --no-fund
+
+      - name: Type-check (tsc --noEmit)
+        working-directory: cardo
+        run: npm run typecheck
+
+      - name: Lint (eslint)
+        working-directory: cardo
+        run: npm run lint
+
+      - name: Unit tests (vitest L1 — incl. the for-each coverage contract)
+        working-directory: cardo
+        # Hermetic: no network/keys. Mirrors the local pre-push gate
+        # (typecheck + lint + test). L2 integration (devnet RPC + treasury key)
+        # and L3/L4 Playwright run nightly / on-demand, not on every PR.
+        run: npm test
+
+      - name: Build (next build)
+        working-directory: cardo
+        run: npm run build

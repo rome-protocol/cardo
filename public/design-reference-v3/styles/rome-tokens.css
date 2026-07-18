@@ -1,0 +1,273 @@
+/* ============================================================
+   Rome Protocol Design System
+   colors_and_type.css — single source of truth for tokens
+   ============================================================ */
+
+/* ---------- Web fonts ---------- */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Light.ttf') format('truetype');
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Regular.ttf') format('truetype');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Italic.ttf') format('truetype');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Medium.ttf') format('truetype');
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-SemiBold.ttf') format('truetype');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('../fonts/IBMPlexMono-Bold.ttf') format('truetype');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root {
+  /* ---------- Brand color (primary) ---------- */
+  --rome-purple:        #5E0A60;  /* main brand — logos, callouts, links */
+  --rome-purple-hover:  #4a0849;
+  --rome-purple-tint:   #7a1a7c;  /* brighter purple, used for hover/states on dark */
+  --rome-dark-purple:   #140218;  /* near-black plum — dark surfaces, accessible text */
+
+  /* ---------- Secondary pastels (ombré accents) ---------- */
+  --rome-pink:          #F9E3F2;
+  --rome-blue:          #DBEFF7;
+  --rome-lavender:      #D5D3EA;
+
+  /* ---------- Neutrals (editorial cream → graphite) ---------- */
+  --rome-cream:         #FBF8F4;  /* page bg, warm off-white */
+  --rome-paper:         #F4F0EA;  /* secondary surface */
+  --rome-stone-50:      #EDE8DF;
+  --rome-stone-100:     #D8D1C3;
+  --rome-stone-200:     #B8AE9C;
+  --rome-stone-400:     #6E6657;
+  --rome-ink:           #1A1814;  /* near-black, warm */
+  --rome-ink-2:         #2E2A24;
+
+  /* ---------- Semantic foreground ---------- */
+  --fg1: var(--rome-ink);                 /* default text */
+  --fg2: var(--rome-stone-400);           /* secondary / meta */
+  --fg3: var(--rome-stone-200);           /* tertiary / disabled */
+  --fg-inverse: var(--rome-cream);
+  --fg-brand: var(--rome-purple);
+  --fg-link: var(--rome-purple);
+
+  /* ---------- Semantic background ---------- */
+  --bg-page: var(--rome-cream);
+  --bg-surface: #FFFFFF;
+  --bg-secondary: var(--rome-paper);
+  --bg-inverse: var(--rome-dark-purple);
+  --bg-brand: var(--rome-purple);
+  --bg-pink: var(--rome-pink);
+
+  /* ---------- Border ---------- */
+  --border-subtle: rgba(20, 2, 24, 0.08);
+  --border-default: rgba(20, 2, 24, 0.16);
+  --border-strong: rgba(20, 2, 24, 0.32);
+  --border-ink: var(--rome-ink);
+
+  /* ---------- Type families ---------- */
+  --font-serif: 'Georgia', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans:  'system-ui', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:  'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- Type scale (desktop) ---------- */
+  --text-display-xl: 120px;  /* hero one-word moments */
+  --text-display:    72px;   /* page heroes, H1 in editorial */
+  --text-h1:         56px;
+  --text-h2:         40px;
+  --text-h3:         28px;
+  --text-h4:         22px;
+  --text-body-lg:    20px;
+  --text-body:       16px;
+  --text-small:      14px;
+  --text-xsmall:     12px;
+  --text-eyebrow:    12px;   /* always uppercase, tracked */
+
+  /* ---------- Line heights ---------- */
+  --lh-display: 1.02;
+  --lh-heading: 1.1;
+  --lh-body:    1.55;
+  --lh-tight:   1.2;
+
+  /* ---------- Letter spacing ---------- */
+  --ls-display: -0.02em;
+  --ls-heading: -0.01em;
+  --ls-body:    0em;
+  --ls-eyebrow: 0.14em;   /* uppercase eyebrows / nav pills */
+  --ls-mono:    0.01em;
+
+  /* ---------- Weights ---------- */
+  --w-serif-regular: 400;
+  --w-serif-medium:  500;
+  --w-serif-bold:    700;
+  --w-sans-light:    300;
+  --w-sans-regular:  400;
+  --w-sans-medium:   500;
+  --w-sans-bold:     700;
+  --w-sans-black:    900;
+  --w-mono-regular:  400;
+  --w-mono-medium:   500;
+
+  /* ---------- Spacing (4px base) ---------- */
+  --s-0:   0;
+  --s-1:   4px;
+  --s-2:   8px;
+  --s-3:   12px;
+  --s-4:   16px;
+  --s-5:   24px;
+  --s-6:   32px;
+  --s-7:   48px;
+  --s-8:   64px;
+  --s-9:   96px;
+  --s-10:  128px;
+
+  /* ---------- Radii (Rome uses pill + slight rounding + zero) ---------- */
+  --r-none: 0;
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   20px;
+  --r-pill: 999px;
+
+  /* ---------- Shadows (used sparingly; Rome is flat/editorial) ---------- */
+  --shadow-xs:  0 1px 2px rgba(20, 2, 24, 0.05);
+  --shadow-sm:  0 2px 8px rgba(20, 2, 24, 0.06);
+  --shadow-md:  0 8px 24px rgba(20, 2, 24, 0.08);
+  --shadow-lg:  0 24px 48px -12px rgba(20, 2, 24, 0.18);
+  --shadow-brand: 0 12px 32px -8px rgba(94, 10, 96, 0.28);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 120ms;
+  --dur-base: 220ms;
+  --dur-slow: 480ms;
+
+  /* ---------- Gradients (ombré swatches from color palette) ---------- */
+  --grad-pink:     linear-gradient(180deg, #F9E3F2 0%, #FFFFFF 100%);
+  --grad-blue:     linear-gradient(180deg, #DBEFF7 0%, #FFFFFF 100%);
+  --grad-lavender: linear-gradient(180deg, #D5D3EA 0%, #FFFFFF 100%);
+  --grad-purple-plum: linear-gradient(180deg, #5E0A60 0%, #140218 100%);
+  --grad-hero-wash: radial-gradient(120% 80% at 50% 0%, #F9E3F2 0%, #FBF8F4 60%);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   (opt in with body.rome-type or apply via classes)
+   ============================================================ */
+body.rome-type,
+.rome-type {
+  font-family: var(--font-sans);
+  font-weight: var(--w-sans-regular);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--fg1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.rome-type h1, .rome-h1 {
+  font-family: var(--font-serif);
+  font-weight: var(--w-serif-regular);
+  font-size: var(--text-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--fg1);
+  text-wrap: pretty;
+}
+.rome-type h2, .rome-h2 {
+  font-family: var(--font-serif);
+  font-weight: var(--w-serif-regular);
+  font-size: var(--text-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--fg1);
+  text-wrap: pretty;
+}
+.rome-type h3, .rome-h3 {
+  font-family: var(--font-serif);
+  font-weight: var(--w-serif-regular);
+  font-size: var(--text-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--fg1);
+}
+.rome-type h4, .rome-h4 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-sans-medium);
+  font-size: var(--text-h3);
+  line-height: var(--lh-heading);
+  color: var(--fg1);
+}
+.rome-type h5, .rome-h5 {
+  font-family: var(--font-sans);
+  font-weight: var(--w-sans-medium);
+  font-size: var(--text-h4);
+  line-height: var(--lh-heading);
+  color: var(--fg1);
+}
+
+.rome-type p, .rome-body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  color: var(--fg1);
+}
+.rome-body-lg {
+  font-family: var(--font-sans);
+  font-weight: var(--w-sans-regular);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-body);
+  color: var(--fg1);
+}
+.rome-small { font-size: var(--text-small); color: var(--fg2); }
+
+.rome-serif-display {
+  font-family: var(--font-serif);
+  font-weight: var(--w-serif-regular);
+  font-size: var(--text-display-xl);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+.rome-eyebrow {
+  font-family: var(--font-mono);
+  font-weight: var(--w-mono-regular);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg1);
+}
+
+.rome-mono, code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+  letter-spacing: var(--ls-mono);
+}
+
+.rome-numeral {
+  font-family: var(--font-serif);
+  font-weight: var(--w-serif-regular);
+  font-variant-numeric: oldstyle-nums;
+}
+
+a { color: var(--fg-link); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--rome-purple-hover); }

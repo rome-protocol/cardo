@@ -1,0 +1,5 @@
+# Cardo local pre-push gate (Phase 0). Blocks the push if any layer is red.
+# L1 (vitest) is hermetic + fast; typecheck + lint catch the rest.
+# Integration (L2) + funded UI e2e (L4) need a live chain / funded wallet and
+# run in CI / nightly, not here. See BUILDOUT_PLAN.md Part C.
+npm run typecheck && npm run lint && npm test
