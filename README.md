@@ -1,6 +1,6 @@
 # cardo
 
-The **Rome App Distribution Portal** — a functional DeFi UI where EVM users execute real transactions against Solana protocols, atomically settled via Rome's CPI layer. The same Cardo adapters that today serve EVM-side flows are also the surface that Solana programs invoke into via Rome's MetaHook callback (and any future Solana → EVM call mechanism); bidirectional interop is part of the design intent, not a future addition. EVM users → Solana protocols is today's primary direction; Solana programs → Cardo adapters is equally first-class. See [`/rome/CLAUDE.md` §"What Rome is for"](https://github.com/rome-protocol/rome/blob/main/CLAUDE.md#what-rome-is-for) for the open-ended interop framing.
+The **Rome App Distribution Portal** — a functional DeFi UI where EVM users execute real transactions against Solana protocols, atomically settled via Rome's CPI layer. The same Cardo adapters that today serve EVM-side flows are also the surface that Solana programs invoke into via Rome's MetaHook callback (and any future Solana → EVM call mechanism); bidirectional interop is part of the design intent, not a future addition. EVM users → Solana protocols is today's primary direction; Solana programs → Cardo adapters is equally first-class.
 
 Live at **https://cardo.devnet.romeprotocol.xyz** — one chain-agnostic image (chain chosen at runtime), served on devnet like the Rome web app. Built with Next.js 15, TypeScript, RainbowKit 2 + wagmi 2 (EVM wallet), Solana wallet adapter (Solana wallet on `/orchestrator`), Anthropic Claude Haiku 4.5 (orchestrator AI router).
 
@@ -124,7 +124,7 @@ const RAY_AMM_V4 = solanaProgramId('raydiumAmmV4', 'devnet'); // explicit networ
 const jupSol     = lstMint('JupSOL');                         // { mint, stakePool, … }
 ```
 
-Pinned per-deployment addresses (Cardo's bootstrap multisig, Sprint 3 Phoenix market, Realms council/community mints) stay inline since they're cardo-owned artifacts, not canonical protocol IDs. See [`CLAUDE.md`](./CLAUDE.md) for the full list of registry keys.
+Pinned per-deployment addresses (Cardo's bootstrap multisig, Realms council/community mints) stay inline since they're cardo-owned artifacts, not canonical protocol IDs.
 
 ## Testing
 
@@ -137,8 +137,5 @@ Manual UI smoke against `http://localhost:3000/orchestrator` with a real Phantom
 
 ## Documentation
 
-- [`CLAUDE.md`](./CLAUDE.md) — agent guide (architecture, the **act|see design rule**, one-image runtime config, conventions, pitfalls)
 - [`components/design/README.md`](./components/design/README.md) — **the act|see design system** (the only design): the rig, palette tokens, how to build a screen, and the guardrail against reintroducing the old light design
-- [`tests/CLAUDE.md`](./tests/CLAUDE.md) — unhappy-path harness conventions
-- [`lib/orchestration/PLAYBOOK.md`](./lib/orchestration/PLAYBOOK.md) — orchestrator session notes (historical)
 - ~~`DESIGN_BRIEF_V3.md`, `DESIGN_SPEC.md`~~ — **RETIRED** light-design briefs (V3 / V1). Superseded by act|see; kept only as history — **do not build from them.**
