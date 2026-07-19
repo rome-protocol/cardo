@@ -148,3 +148,6 @@ Manual UI smoke against `http://localhost:3000/orchestrator` with a real Phantom
 
 - [`components/design/README.md`](./components/design/README.md) — **the act|see design system** (the only design): the rig, palette tokens, how to build a screen, and the guardrail against reintroducing the old light design
 - ~~`DESIGN_BRIEF_V3.md`, `DESIGN_SPEC.md`~~ — **RETIRED** light-design briefs (V3 / V1). Superseded by act|see; kept only as history — **do not build from them.**
+
+## Building on Rome with an agent
+See [`AGENTS.md`](./AGENTS.md) — the Rome-specific rules a coding agent needs.
