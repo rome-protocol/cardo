@@ -1,8 +1,17 @@
 # cardo
 
+> **Built on [Rome Protocol](https://docs.rome.builders)** — EVM chains that run natively inside the Solana runtime, where Solidity apps call Solana programs atomically (CPI) and Solana users drive EVM apps: two VMs, one chain, one block.
+
 The **Rome App Distribution Portal** — a functional DeFi UI where EVM users execute real transactions against Solana protocols, atomically settled via Rome's CPI layer. The same Cardo adapters that today serve EVM-side flows are also the surface that Solana programs invoke into via Rome's MetaHook callback (and any future Solana → EVM call mechanism); bidirectional interop is part of the design intent, not a future addition. EVM users → Solana protocols is today's primary direction; Solana programs → Cardo adapters is equally first-class.
 
 Live at **https://cardo.devnet.romeprotocol.xyz** — one chain-agnostic image (chain chosen at runtime), served on devnet like the Rome web app. Built with Next.js 15, TypeScript, RainbowKit 2 + wagmi 2 (EVM wallet), Solana wallet adapter (Solana wallet on `/orchestrator`), Anthropic Claude Haiku 4.5 (orchestrator AI router).
+
+**Why this works on Rome:**
+- **Single state** — EVM transactions settle against Solana protocols directly, with no bridge and no wrapped-asset hop.
+- **Atomic CPI access** — Solidity calldata invokes Solana programs (Meteora, Marinade, Mango, Jupiter, …) atomically via Rome's CPI layer — this is Cardo's whole premise.
+- **App Sovereignty** — runs on its own Rome EVM chain with a custom gas token; the orchestrator's take-rate fee model only charges when the swap lands.
+
+For how EVM execution and CPI work on Solana, see the **[Rome Protocol documentation](https://docs.rome.builders)** and the in-repo [`app/for-agents`](app/for-agents) integration guide.
 
 > **Status:** the **act|see** dark UI is the shipping design across the main dapp surfaces — see [`components/design/README.md`](./components/design/README.md) (the old light "V3" design is retired). Deployed as one chain-agnostic image (chain via runtime `ROME_CHAIN_ID`, header chain switcher over the devnet chains). 29+ adapter families, 40+ instruction builders, 18 unhappy-path test files. The `/orchestrator` surface accepts plain-English Solana intents, ranks routes via Claude, and executes atomically on Solana mainnet with a take-rate fee model that pays only when the swap lands.
 
