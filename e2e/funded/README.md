@@ -37,8 +37,8 @@ E2E_BASE_URL=http://localhost:3000 E2E_CHAIN_ID=200010 npm run test:e2e-funded
 
 ## Funding the treasury
 
-One persistent wallet (operator decision: reuse the existing Hadrian key,
-no separate payer). Per-route specs need it funded for that flow:
+One persistent wallet (reuse a single funded test key rather than
+provisioning a separate payer). Per-route specs need it funded for that flow:
 
 - **gas**: ≥ 0.005 native (mETH on Hadrian) — Rome gates `gas_price *
   gas_limit ≤ balance` even though emulation doesn't spend.
