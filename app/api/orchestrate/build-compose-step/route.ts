@@ -28,6 +28,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Connection, PublicKey } from '@solana/web3.js';
 import { withRpcFailover } from '@/lib/orchestration/config';
+import { POST as buildLeaf } from '../build/route';
+import { POST as buildYieldLeaf } from '../build-yield/route';
 
 export const runtime = 'nodejs';
 
@@ -221,16 +223,19 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  // Dispatch to the leaf-intent builder. Each leaf builder accepts a
-  // single-intent shape, so we wrap the resolved step's params in an
-  // intent-shaped object and forward.
-  const baseHost =
-    new URL(req.url).origin || 'http://localhost:3030';
-  let leafEndpoint: string;
+  // Dispatch to the leaf-intent builder IN-PROCESS. Each leaf builder accepts
+  // a single-intent shape, so we wrap the resolved step's params in an
+  // intent-shaped object and forward. We deliberately do NOT self-fetch over
+  // HTTP: req.url's host comes from the request and is attacker-controllable,
+  // so building a URL from it and fetching it back would be a self-SSRF
+  // vector. The leaf handlers only read their JSON body, so calling them
+  // directly keeps the whole compose in one process — no network hop, no
+  // trust in the request host.
+  let leafHandler: (r: NextRequest) => Promise<Response>;
   let leafBody: Record<string, unknown>;
 
   if (resolvedStep.kind === 'swap' || resolvedStep.kind === 'stake') {
-    leafEndpoint = `${baseHost}/api/orchestrate/build`;
+    leafHandler = buildLeaf;
     leafBody = {
       intent: { kind: resolvedStep.kind, params: resolvedStep.params },
       userPubkey: body.userPubkey,
@@ -240,7 +245,7 @@ export async function POST(req: NextRequest) {
       slippageBps: body.slippageBps ?? 50,
     };
   } else if (resolvedStep.kind === 'yield') {
-    leafEndpoint = `${baseHost}/api/orchestrate/build-yield`;
+    leafHandler = buildYieldLeaf;
     leafBody = {
       intent: { kind: 'yield', params: resolvedStep.params },
       userPubkey: body.userPubkey,
@@ -255,11 +260,14 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const leafRes = await fetch(leafEndpoint, {
+  // Fixed internal URL — never used for routing (the leaf handlers read only
+  // the JSON body); it just satisfies the NextRequest constructor.
+  const leafReq = new NextRequest('http://compose.internal/leaf', {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(leafBody),
   });
+  const leafRes = await leafHandler(leafReq);
   const leaf = await leafRes.json();
   if (!leafRes.ok) {
     return NextResponse.json(
