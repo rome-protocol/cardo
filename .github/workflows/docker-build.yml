@@ -1,0 +1,35 @@
+# Validates the production image builds — no push, no secrets. Kept separate
+# from pr-validate.yml so the lightweight code gate stays fast; this job only
+# proves the Dockerfile stays green. The actual publish happens elsewhere.
+name: Docker build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  docker-build:
+    name: Validate image builds (no push)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: docker/setup-buildx-action@v3
+
+      - name: Build image (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          platforms: linux/amd64
+          cache-from: type=gha,scope=cardo-validate
+          cache-to: type=gha,mode=min,scope=cardo-validate
