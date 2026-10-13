@@ -20,6 +20,7 @@
 
 import Anthropic from '@anthropic-ai/sdk';
 import type { Route } from './route-analysis';
+import { MAX_INTENT_TEXT_LENGTH } from './intent-input';
 
 const HAIKU = 'claude-haiku-4-5';
 
@@ -235,6 +236,12 @@ function client(): Anthropic | null {
 // ─────────────────────────────────────────────────────────────────────
 
 export async function parseIntent(text: string): Promise<ParsedIntent> {
+  // Defense-in-depth: callers should bound length at the request boundary
+  // (see checkIntentText), but clamp here too so the heuristic regexes below
+  // can never be driven into pathological backtracking regardless of caller.
+  if (text.length > MAX_INTENT_TEXT_LENGTH) {
+    text = text.slice(0, MAX_INTENT_TEXT_LENGTH);
+  }
   const c = client();
   if (!c) return parseIntentHeuristic(text);
 

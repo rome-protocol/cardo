@@ -16,6 +16,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { parseIntent, rankRoutes } from '@/lib/orchestration/ai-router';
+import { checkIntentText } from '@/lib/orchestration/intent-input';
 import {
   analyzeSwapIntent,
   analyzeStakeIntent,
@@ -79,10 +80,12 @@ export async function POST(req: NextRequest) {
   } catch {
     return NextResponse.json({ error: 'invalid json body' }, { status: 400 });
   }
-  const text = (body.text ?? '').trim();
-  if (!text) {
-    return NextResponse.json({ error: 'missing text' }, { status: 400 });
+  // Bound the free text before it reaches parseIntent's regexes (ReDoS guard).
+  const checked = checkIntentText(body.text);
+  if (!checked.ok) {
+    return NextResponse.json({ error: checked.error }, { status: checked.status });
   }
+  const text = checked.text;
 
   // Step 1: parse intent
   const intent = await parseIntent(text);
