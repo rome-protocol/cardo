@@ -13,7 +13,7 @@ Live at **https://cardo.devnet.romeprotocol.xyz** — one chain-agnostic image (
 
 For how EVM execution and CPI work on Solana, see the **[Rome Protocol documentation](https://docs.rome.builders)** and the in-repo [`app/for-agents`](app/for-agents) integration guide.
 
-> **Status:** the **act|see** dark UI is the shipping design across the main dapp surfaces — see [`components/design/README.md`](./components/design/README.md) (the old light "V3" design is retired). Deployed as one chain-agnostic image (chain via runtime `ROME_CHAIN_ID`, header chain switcher over the devnet chains). 29+ adapter families, 40+ instruction builders, 18 unhappy-path test files. The `/orchestrator` surface accepts plain-English Solana intents, ranks routes via Claude, and executes atomically on Solana mainnet with a take-rate fee model that pays only when the swap lands.
+> **Status:** the **act|see** dark UI is the shipping design across the main dapp surfaces — see [`components/design/README.md`](./components/design/README.md) (the old light "V3" design is retired). Deployed as one chain-agnostic image (chain via runtime `ROME_CHAIN_ID`, header chain switcher over the configured chains). 29+ adapter families, 40+ instruction builders, 18 unhappy-path test files. The `/orchestrator` surface accepts plain-English Solana intents, ranks routes via Claude, and executes atomically on Solana mainnet with a take-rate fee model that pays only when the swap lands.
 
 ## What's in the repo
 
@@ -72,7 +72,7 @@ npm run test:integrations          # tsx tests/runner.ts (54 cases)
 npm run build                      # production build (standalone Next.js output)
 ```
 
-The dev server serves Cardo's swap/lend/perps surfaces against the active Rome devnet chain (default Hadrian 200010; page reads proxy through `/api/rpc/rome`) and `/orchestrator` against Solana mainnet via Helius. Set `ROME_CHAIN_ID` to point the same build at another devnet chain — no rebuild (runtime config via `/api/env`).
+The dev server serves Cardo's swap/lend/perps surfaces against the active Rome chain (default Hadrian 200010, the testnet; page reads proxy through `/api/rpc/rome`) and `/orchestrator` against Solana mainnet via Helius. Set `ROME_CHAIN_ID` to point the same build at another chain in the compiled registry set — no rebuild (runtime config via `/api/env`).
 
 ### Environment
 
