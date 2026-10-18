@@ -72,7 +72,7 @@ npm run test:integrations          # tsx tests/runner.ts (54 cases)
 npm run build                      # production build (standalone Next.js output)
 ```
 
-The dev server serves Cardo's swap/lend/perps surfaces against the active Rome devnet chain (default Hadrian 200010; page reads proxy through `/api/rpc/rome`) and `/orchestrator` against Solana mainnet via Helius. Set `ROME_CHAIN_ID` to point the same build at another devnet chain — no rebuild (runtime config via `/api/env`).
+The dev server serves Cardo's swap/lend/perps surfaces against the active Rome chain (default Hadrian 200010, the testnet; page reads proxy through `/api/rpc/rome`) and `/orchestrator` against Solana mainnet via Helius. Set `ROME_CHAIN_ID` to point the same build at another Rome chain — no rebuild (runtime config via `/api/env`).
 
 ### Environment
 
